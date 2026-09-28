@@ -66,18 +66,17 @@ echo $(echo "java versions" && ls -a /usr/local/sdkman/candidates/java)
 
 # Check Ruby tools
 check "ruby" ruby --version
-check "rvm" bash -c ". /usr/local/rvm/scripts/rvm && rvm --version"
-check "rbenv" bash -c 'eval "$(rbenv init -)" && rbenv --version'
+check "ruby-build" ruby-build --version
 check "gems" gem --version
 check "rake" rake --version
 check "jekyll" jekyll --version
-count=$(ls /usr/local/rvm/gems | wc -l)
-expectedCount=6 # 2 version folders + 2 global folders for each version + 1 default folder which links to either one of the version + 1 cache folder
+count=$(ls /usr/local/rubies | wc -l)
+expectedCount=3 # 2 version folders + 1 current folder which links to either one of the version
 checkVersionCount "two versions of ruby are present" $count $expectedCount
-echo $(echo "ruby versions" && ls -a /usr/local/rvm/rubies)
-rvmExtensions="/usr/local/rvm/gems/default/extensions"
-rvmPlatform=$(rvm info default ruby | grep -w "platform" | cut -d'"' -f 2)
-checkDirectoryOwnership "codespace user has ownership over extension directory" "$rvmExtensions/$rvmPlatform" "codespace" "rvm"
+echo $(echo "ruby versions" && ls -a /usr/local/rubies)
+rubyGemsDir=$(ruby -e 'require "rubygems"; puts File.join(Gem.default_dir, "extensions")')
+check "ruby extensions dir exists" test -d "$rubyGemsDir"
+checkDirectoryOwnership "codespace user has ownership over extension directory" "$rubyGemsDir" "codespace" "ruby"
 
 # Node.js
 check "node" node --version
@@ -178,8 +177,9 @@ checkPythonPackageVersion "python" "requests" "2.31.0"
 
 ## Conda Python
 checkCondaPackageVersion "requests" "2.31.0"
-checkCondaPackageVersion "cryptography" "46.0.7"
-checkCondaPackageVersion "pyopenssl" "26.0.0"
+checkCondaPackageVersion "cryptography" "50.0.0"
+checkCondaPackageVersion "pyopenssl" "26.4.0"
+checkCondaPackageVersion "openssl" "3.5.8"
 checkCondaPackageVersion "urllib3" "2.6.3"
 checkCondaPackageVersion "brotli" "1.2.0"
 checkCondaPackageVersion "python-dotenv" "1.2.2"

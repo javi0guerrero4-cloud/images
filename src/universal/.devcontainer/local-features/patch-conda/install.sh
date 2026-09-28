@@ -25,7 +25,7 @@ sudo_if() {
     if [ "$(id -u)" -eq 0 ] && [ "$USERNAME" != "root" ]; then
         su - "$USERNAME" -c "$COMMAND"
     else
-        "$COMMAND"
+        bash -c "$COMMAND"
     fi
 }
 
@@ -65,15 +65,16 @@ done
 # Temporary: Upgrade python packages due to security vulnerabilities
 # They are installed by the conda feature and Conda distribution does not have the patches
 
-# https://github.com/advisories/GHSA-r6ph-v2qm-q3c2
-update_conda_package pyopenssl "26.0.0"
-
-# https://github.com/advisories/GHSA-p423-j2cm-9vmq
-update_conda_package cryptography "46.0.7"
+# https://github.com/advisories/GHSA-537c-gmf6-5ccf
+update_conda_package cryptography "50.0.0"
+update_conda_package pyopenssl "26.4.0"
+update_conda_package openssl "3.5.8"
 
 # https://nvd.nist.gov/vuln/detail/CVE-2025-6176
 update_conda_package brotli "1.2.0"
 
 # https://github.com/advisories/GHSA-mf9w-mj56-hr94
 update_python_package /opt/conda/bin/python3 python-dotenv "1.2.2"
+
+sudo_if "conda clean --all --yes"
 

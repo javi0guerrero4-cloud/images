@@ -29,12 +29,12 @@ __metadata:
   linkType: hard
 
 "brace-expansion@npm:^1.1.7":
-  version: 1.1.11
-  resolution: "brace-expansion@npm:1.1.11"
+  version: 1.1.21
+  resolution: "brace-expansion@npm:1.1.21"
   dependencies:
     balanced-match: "npm:^1.0.0"
     concat-map: "npm:0.0.1"
-  checksum: 10c0/695a56cd058096a7cb71fb09d9d6a7070113c7be516699ed361317aca2ec169f618e28b8af352e02ab4233fb54eb0168460a40dc320bab0034b36ab59aaad668
+  checksum: 10c0/8f0a68a720f9cb28c2ecaea5cdaf15fafd686d6b6e4e722a81c9d4bd2f68c1fd0619731cac05875d842221eaf4d97d564d329a12eb3c4c22137502fb3c65be8b
   languageName: node
   linkType: hard
 
@@ -162,12 +162,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.7.7":
-  version: 4.7.7
-  resolution: "handlebars@npm:4.7.7"
+"handlebars@npm:^4.7.9":
+  version: 4.7.9
+  resolution: "handlebars@npm:4.7.9"
   dependencies:
     minimist: "npm:^1.2.5"
-    neo-async: "npm:^2.6.0"
+    neo-async: "npm:^2.6.2"
     source-map: "npm:^0.6.1"
     uglify-js: "npm:^3.1.4"
     wordwrap: "npm:^1.0.0"
@@ -176,7 +176,7 @@ __metadata:
       optional: true
   bin:
     handlebars: bin/handlebars
-  checksum: 10c0/4c0913fc0018a2a2e358ee94e4fe83f071762b8bec51a473d187e6642e94e569843adcf550ffe329554c63ad450c062f3a05447bd2e3fff5ebfe698e214225c6
+  checksum: 10c0/22f8105a7e68e81aff2662bb434edf05f757d21d850731d71cec886d69c10cd33d3c43e34b2892968ec62de8241611851d3d0674c8ef324ea3e01dc66262faa9
   languageName: node
   linkType: hard
 
@@ -247,11 +247,11 @@ __metadata:
   linkType: hard
 
 "minimatch@npm:^3.0.3, minimatch@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "minimatch@npm:3.1.2"
+  version: 3.1.5
+  resolution: "minimatch@npm:3.1.5"
   dependencies:
     brace-expansion: "npm:^1.1.7"
-  checksum: 10c0/0262810a8fc2e72cca45d6fd86bd349eee435eb95ac6aa45c9ea2180e7ee875ef44c32b55b5973ceabe95ea12682f6e3725cbb63d7a2d1da3ae1163c8b210311
+  checksum: 10c0/2ecbdc0d33f07bddb0315a8b5afbcb761307a8778b48f0b312418ccbced99f104a2d17d8aca7573433c70e8ccd1c56823a441897a45e384ea76ef401a26ace70
   languageName: node
   linkType: hard
 
@@ -293,7 +293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"neo-async@npm:^2.6.0":
+"neo-async@npm:^2.6.2":
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 10c0/c2f5a604a54a8ec5438a342e1f356dff4bc33ccccdb6dc668d94fe8e5eccfc9d2c2eea6064b0967a767ba63b33763f51ccf2cd2441b461a7322656c1f06b3f5d
@@ -393,7 +393,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     copyfiles: "npm:^2.4.1"
-    handlebars: "npm:^4.7.7"
+    handlebars: "npm:^4.7.9"
     jsonc: "npm:^2.0.0"
     mkdirp: "npm:0.5.5"
     rimraf: "npm:^3.0.2"
